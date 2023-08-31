@@ -139,32 +139,15 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
-        # 'rest_framework_xml.renderers.XMLRenderer',
-        # 'rest_framework_csv.renderers.CSVRenderer', 
-        # 'rest_framework_yaml.renderers.YAMLRenderer', 
     ],
-    # 'DEFAULT_FILTER_BACKENDS': [
-    #     'django_filters.rest_framework.DjangoFilterBackend',
-    #     'rest_framework.filters.OrderingFilter',
-    #     'rest_framework.filters.SearchFilter',
-    # ],
 
     # 'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAdminUser', ),
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        
     ),
-
-    # 'DEFAULT_THROTTLE_RATES': {
-    #     'anon':'2/minute',
-    #     'user':'5/minute',
-    #     'ten':'10/minute',
-    # },
-
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    # 'PAGE_SIZE': 3
 
 }
 
