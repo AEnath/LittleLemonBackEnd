@@ -9,40 +9,13 @@ from .models import Booking, Menu
 from .serializers import BookingSerializer, MenuSerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated
 
+from rest_framework.viewsets import ModelViewSet
+from django.contrib.auth.models import User
+from rest_framework import permissions
 # Create your views here.
 
 def index(request):
     return render(request, 'index.html', {})
-
-# class bookingview(APIView):
-
-#     def get(self, request):
-#         items = Booking.objects.all()
-#         serializer = BookingSerializer(items, many=True)
-#         return Response(serializer.data)
-    
-#     def post(self, request):
-#         serializer = BookingSerializer(data=request.data)
-
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response({"status": "success", "data": serializer.data})
-
-# class menuview(APIView):
-
-#     def get(self, request):
-#         items = Menu.objects.all()
-#         serializer = MenuSerializer(items, many=True)
-#         return Response(serializer.data)
-    
-#     def post(self, request):
-#         serializer = MenuSerializer(data=request.data)
-
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response({"status": "success", "data": serializer.data})
-
-
 
 class MenuItemsView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
@@ -54,22 +27,18 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
     serializer_class = MenuSerializer
 
 
-from rest_framework.viewsets import ModelViewSet
+
 
 class BookingViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
-from django.contrib.auth.models import User
-from rest_framework import permissions
 
 class UserViewSet(ModelViewSet):
    queryset = User.objects.all()
    serializer_class = UserSerializer
    permission_classes = [permissions.IsAuthenticated] 
-
-
 
 
 @api_view()
