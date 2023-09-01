@@ -1,7 +1,6 @@
 # Capstone Project
 
-### menu/
-### menu/<int:pk>
+### restaurant/menu/
+### restaurant/menu/1
 ### restaurant/booking/
 ### message/
-### api-token-auth/
